@@ -1,0 +1,5 @@
+<app-players [players]="teams" (playerSelected) = "OnPlayerSelected($event)"></app-players>
+<div *ngIf = "selectedPlayer">
+    <h2>Selected Player</h2>
+    <p>{{selectedPlayer.name}}</p>
+</div>
