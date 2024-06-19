@@ -7,11 +7,11 @@
 <form (ngSubmit) = "addPlayer()">
     <div class = "form-group">
         <label for="name">Name</label>
-        <input id="name" [(ngModel)]="newPlayer.name" name="name" class="form-control" required>
+        <input id="name" (ngModel)="newPlayer.name" name="name" class="form-control" required>
     </div>
     <div class="form-group">
         <label for="team">Team</label>
-        <input id="team" [(ngModel)]="newPlayer.team" name="team" class="form-control" required>
+        <input id="team" (ngModel)="newPlayer.team" name="team" class="form-control" required>
     </div>
     <button type="submit" class="btn btn-primary">Add Player</button>
 </form>

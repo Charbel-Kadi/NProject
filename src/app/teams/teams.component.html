@@ -1,5 +1,9 @@
+<h2>NBA Teams</h2>
+<ul>
+    <li *ngFor="let team of teams">{{team.name}}</li>
+</ul>
 <app-players [players]="teams" (playerSelected) = "OnPlayerSelected($event)"></app-players>
 <div *ngIf = "selectedPlayer">
-    <h2>Selected Player</h2>
+    <h3>Selected Player</h3>
     <p>{{selectedPlayer.name}}</p>
 </div>
