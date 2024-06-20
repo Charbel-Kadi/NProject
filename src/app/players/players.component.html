@@ -1,0 +1,12 @@
+<h2>NBA Players</h2>
+<ul class="list-group">
+    <li *ngFor="let player of players" class="list-group-item" appHighlight="red">
+        {{player.firstName | transform }} {{player.lastName | transform }}
+    </li>
+</ul>
+
+<div class="mt-3">
+    <input type="text" placeholder="First Name" (ngModel)="newPlayer.firstName" class="form-control mb-2">
+    <input type="text" placeholder="Last Name" (ngModel)="newPlayer.lastName" class="form-control mb-2">
+    <button (click)="addPlayer()" class="btn btn-primary">Add Player</button>
+</div>
