@@ -1,27 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import { NbaService } from '../nba.service';
 import { PlayersComponent } from '../players/players.component';
+import { TransformPipe } from '../transform.pipe';
 @Component({
   selector: 'app-teams',
   templateUrl: './teams.component.html',
   styleUrl: './teams.component.scss'
 })
-export class TeamsComponent implements OnInit{
-  teams: any[] = [];
-  selectedPlayer: any = null;
+export class TeamsComponent{
+ @Input() teams: any[] = [];
+ @Output() selectTeam = new EventEmitter<string>();
 
   constructor(private NbaService: NbaService){}
 
-  ngOnInit(): void {
-    this.NbaService.getPlayers().subscribe(data => {this.teams = data;});
-    this.loadTeams();
+  onSelect(team: string): void{
+    this.selectTeam.emit(team);
   }
+  
+  
 
-  OnPlayerSelected(player: any):void{
-    this.selectedPlayer = player;
-  }
-  loadTeams(): void{
-    this.NbaService.getTeams().subscribe(data => {this.teams = data;});
-  }
+
+  
 
 }

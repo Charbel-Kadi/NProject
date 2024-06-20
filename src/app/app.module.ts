@@ -10,7 +10,8 @@ import { HighlightDirective } from "./highlight.directive";
 import { TransformPipe } from "./transform.pipe";
 import { FormsModule } from "@angular/forms";
 import { RouterModule, RouterOutlet} from "@angular/router";
-import { routes } from "./app.routes";
+import { AppRouting, routes } from "./app.routes";
+
 
 
 
@@ -22,7 +23,8 @@ import { routes } from "./app.routes";
         TeamsComponent,
         PlayersComponent,
         RouterOutlet,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes),
+        TransformPipe
     ],
     exports: [RouterModule, TransformPipe, HighlightDirective],
 

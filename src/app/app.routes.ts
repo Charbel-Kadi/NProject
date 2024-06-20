@@ -5,8 +5,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 export const routes: Routes = [
-    {path: 'players', component: PlayersComponent },
-    {path: 'teams', component: TeamsComponent},
+    {path: 'players', loadChildren: () => import('./players/players.component').then(m => m.PlayersComponent) },
+    {path: 'teams', loadChildren: () => import('./teams/teams.component').then(m => m.TeamsComponent)},
     {path: '',redirectTo: '/players', pathMatch: 'full'}
 ];
 

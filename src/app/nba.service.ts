@@ -6,20 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class NbaService {
-  private apiUrl = 'https://stats.nba.com/stats/'
-
+  private apiUrl = 'https://any-api.com:8443/http://data.nba.net/10s/prod/v1/2020/players.json';
+  private apiPostUrl = 'https://jsonplaceholder.typicode.com/posts';
 
   constructor(private http: HttpClient) { }
 
   getPlayers(): Observable<any> {
-   return this.http.get<any>('${this.apiUrl}/players');
+   return this.http.get<any>(this.apiUrl);
   }
    getTeams(): Observable<any>{
     return this.http.get<any>('${this.apiUrl}/teams');
    }
 
    addPlayer(player: any): Observable<any>{
-    const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    return this.http.post<any>('${this.apiUrl}/players', player, {headers});
+ return this.http.post<any>(this.apiPostUrl, player);
    }
 }

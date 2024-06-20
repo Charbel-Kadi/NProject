@@ -11,5 +11,14 @@ import { NbaService } from './nba.service';
 })
 export class AppComponent {
   title = 'NbaApp';
+  teams= [{name: 'Los Angeles Lakers'}, {name: 'Golden State Warriors'}, {name: 'Brooklyn Nets'}];
   constructor(private NbaService: NbaService){}
+
+selectedTeam!: string;
+
+onTeamSelect(team: string): void {
+  this.selectedTeam = team;
+}
+
+
 }
